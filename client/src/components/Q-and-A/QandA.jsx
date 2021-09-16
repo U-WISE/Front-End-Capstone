@@ -21,7 +21,7 @@ const QandA = () => {
       .then((res) => {
         res.data.results.length <= 2
           ? document.getElementsByClassName('more-answered-questions')[0].style.visibility = 'hidden'
-          : console.log('there are more than 2 questions');
+          : document.getElementsByClassName('more-answered-questions')[0].style.visibility = 'visible';
       })
       .catch((err) => console.log(err));
   };

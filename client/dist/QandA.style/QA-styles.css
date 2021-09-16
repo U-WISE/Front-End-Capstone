@@ -5,7 +5,7 @@
   width: 850px;
   border: 5px solid gray;
   padding: 15px;
-  height: 925px;
+  height: 1000px;
   z-index: 0;
 }
 
@@ -70,7 +70,7 @@
   position: relative;
   overflow: hidden;
   overflow-x: hidden;
-  height: 700px;
+  height: 800px;
 }
 
 .load-more-answers {

@@ -33,3 +33,4 @@ export const getQuestions = (product) => {
 export const loadMoreAnswers = (event) => {
   console.log('load more answers click');
 };
+

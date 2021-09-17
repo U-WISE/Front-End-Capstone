@@ -20,7 +20,6 @@ const ReviewList = () => {
     return null;
   };
 
-
   return (
     <div id="reviewList">
       {anyReviews()}

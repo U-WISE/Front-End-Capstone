@@ -28,7 +28,7 @@ const Answers = ({ answers }) => {
     <div>
       {answersArr.splice(0, currentAnswersShows).map((answer, index) => {
         return (
-          <div id={index}>
+          <div key={index}>
             <span>
               {utils.checkForAnswer(answer)} &nbsp; | &nbsp;
               By: {utils.checkForSeller(answer)}

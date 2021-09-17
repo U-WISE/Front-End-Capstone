@@ -28,7 +28,7 @@ export const handleSubmit = (event, id) => {
   const email = event.target.email.value;
   const answerer_name = event.target.username.value;
   const answer_body = event.target.answerText.value;
-
+  console.log(id);
   console.log('id: ', id);
   const objToSend = {
     'email': email,

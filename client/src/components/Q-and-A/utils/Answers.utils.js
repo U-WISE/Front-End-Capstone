@@ -8,3 +8,8 @@ export const checkForSeller = (answer) => {
   if (answer !== 'Seller') { return answer.answerer_name; }
   return 'Seller';
 };
+
+
+export const loadMoreAnswers = (event) => {
+  console.log('load more answers click');
+};

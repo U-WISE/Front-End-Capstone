@@ -9,7 +9,7 @@ const AllQandA = (props) => {
   return (
     props.questions.map((question, index) => {
       return (
-        <div className="qa-container" key={index}>
+        <div className={`qa-container ${question.question_id}`} key={index}>
           <div className="question"><b>Q:</b> {question.question_body}
             <div className="helpful">Helpful?&nbsp;
               <button className="yes-button">Yes</button>( {question.question_helpfulness} )

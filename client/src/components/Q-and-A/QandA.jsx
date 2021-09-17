@@ -6,11 +6,13 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
+import { appContext } from '../../contexts/index.js';
+import * as utils from './utils/QandA.utils.js';
+
+// Components
 import AddQuestionModal from './AddQuestionModal.jsx';
 import AddAnswerModal from './AddAnswerModal.jsx';
-import { appContext } from '../../contexts/index.js';
 import AllQandA from './AllQandA.jsx';
-import * as utils from './utils/QandA.utils.js';
 
 const QandA = () => {
   const { product } = useContext(appContext);

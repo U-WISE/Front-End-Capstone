@@ -9,3 +9,8 @@ export const checkForHelpfulness = (answer) => {
   if (answer === undefined) { return 0; }
   return answer.helpfulness;
 };
+
+export const handleReport = (event) => {
+  event.preventDefault();
+  console.log('hadnlign report');
+};

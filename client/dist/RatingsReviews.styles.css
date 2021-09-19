@@ -1,8 +1,11 @@
 #RRcontainer {
   display: grid;
   grid-template-columns: 1fr 2fr;
-
 }
+
+/*
+Review styles
+*/
 
 #reviewList {
   grid-column-start: 2;
@@ -20,6 +23,70 @@
   max-height: 90vh;
 }
 
+#ReviewContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-bottom: solid 1px;
+}
+
+#starRating{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#verifiedPurchaser {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+#reviewUserName {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#reviewDate {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#reviewTitle {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#reviewBody {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+#reviewHelpful {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#reviewReport {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+/*
+Ratings styles
+*/
 #ratingsBreakdown {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -173,6 +240,127 @@
   grid-row-end: 10;
 }
 
+/*
+characteristics styles
+*/
+
+#productCharacteristics {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: solid 1px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: grid;
+}
+
+#characteristics {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 0;
+}
+
+.characteristics-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto 1fr 1fr;
+}
+
+.characteristicsLabel {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.characteristicsBar {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.leftEnd {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  text-align: left;
+}
+
+.middleEnd {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.rightEnd {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  text-align: right;
+}
+
+#size {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#width {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+#length {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#fit {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+
+#quality {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+#comfort {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
+.triangle {
+width: 0;
+height: 0;
+border: 10px solid transparent;
+border-top: 10px solid green;
+content: ' ';
+position: relative;
+}
+
+/*
+general styles
+*/
+
 .borderBar {
   width: 99%;
   height: 1rem;
@@ -199,72 +387,4 @@
 }
 .linkButtons:hover {
   background-color:lightskyblue;
-}
-
-#productCharacteristics {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-#ReviewContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  border-bottom: solid 1px;
-}
-
-#starRating{
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#verifiedPurchaser {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-#reviewUserName {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#reviewDate {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#reviewTitle {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-#reviewBody {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-
-#reviewHelpful {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 5;
-}
-
-#reviewReport {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
 }

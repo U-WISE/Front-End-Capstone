@@ -13,6 +13,11 @@ import * as utils from './utils/QandA.utils.js';
 import AddQuestionModal from './AddQuestionModal.jsx';
 import AddAnswerModal from './AddAnswerModal.jsx';
 import AllQandA from './AllQandA.jsx';
+<<<<<<< HEAD
+=======
+import { appContext } from '../../contexts/index.js';
+import * as utils from './utils/QandA.utils.js';
+>>>>>>> 6a1b263bc89f37433f0de71ae18d4b55858f0ccf
 
 const QandA = () => {
   const { product } = useContext(appContext);
@@ -30,6 +35,7 @@ const QandA = () => {
   };
 
   useEffect(() => {
+    // Type at least 3 letters before search fires off
     if (searchTerm <= 3) { getData(); }
     const results = questions.filter((question) => {
       return question.question_body.toLowerCase().includes(searchTerm.toLowerCase());
@@ -68,7 +74,7 @@ const QandA = () => {
       </div>
       <div className="q-wrapper"><AllQandA questions={questions} /></div>
       <div className="more-question-wrapper">{ checkForAnsweredQuestions() }
-        <button className="more-answered-questions" onClick={utils.showMoreQuestions}> More Answered Questions</button>
+        <button className="more-answered-questions" onClick={utils.showMoreQuestions}>More Answered Questions</button>
         <button className="add-question" onClick={utils.openQuestionModal}>Add a Question</button>
       </div>
     </div>

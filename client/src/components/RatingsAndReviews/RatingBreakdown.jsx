@@ -2,37 +2,37 @@ import React, { useState, useEffect, useContext } from 'react';
 import { reviewsContext } from '../../contexts/index.js';
 
 const RatingBreakdown = () => {
-  const context = useContext(reviewsContext);
+  const { reviews, setFiltered, filtered } = useContext(reviewsContext);
 
   const clearFilters = () => {
-    context.setFiltered({
+    setFiltered({
       'one': false, 'two': false, 'three': false, 'four': false, 'five': false
     });
   };
 
   const showFilters = () => {
     let filters = '';
-    if (context.filtered.five) {
+    if (filtered.five) {
       filters += 'Five Stars ';
     }
-    if (context.filtered.four) {
+    if (filtered.four) {
       filters += 'Four Stars ';
     }
-    if (context.filtered.three) {
+    if (filtered.three) {
       filters += 'Three Stars ';
     }
-    if (context.filtered.two) {
+    if (filtered.two) {
       filters += 'Two Stars ';
     }
-    if (context.filtered.one) {
+    if (filtered.one) {
       filters += 'One Star ';
     }
     filters.slice(-1);
-    if (context.filtered.five
-      || context.filtered.four
-      || context.filtered.three
-      || context.filtered.two
-      || context.filtered.one) {
+    if (filtered.five
+      || filtered.four
+      || filtered.three
+      || filtered.two
+      || filtered.one) {
       return (
         <span id="appliedFilters">Applied Filters: {filters}<button className="linkButtons" onClick={clearFilters}>Clear Filters</button></span>
       );
@@ -40,7 +40,7 @@ const RatingBreakdown = () => {
     return null;
   };
 
-  const totalReviews = context.reviews.length;
+  const totalReviews = reviews.length;
   let oneStarReviews = 0;
   let twoStarReviews = 0;
   let threeStarReviews = 0;
@@ -48,19 +48,19 @@ const RatingBreakdown = () => {
   let fiveStarReviews = 0;
   let recommended = 0;
 
-  for (let i = 0; i < context.reviews.length; i++) {
-    if (context.reviews[i].rating === 1) {
+  for (let i = 0; i < reviews.length; i++) {
+    if (reviews[i].rating === 1) {
       oneStarReviews++;
-    } else if (context.reviews[i].rating === 2) {
+    } else if (reviews[i].rating === 2) {
       twoStarReviews++;
-    } else if (context.reviews[i].rating === 3) {
+    } else if (reviews[i].rating === 3) {
       threeStarReviews++;
-    } else if (context.reviews[i].rating === 4) {
+    } else if (reviews[i].rating === 4) {
       fourStarReviews++;
-    } else if (context.reviews[i].rating === 5) {
+    } else if (reviews[i].rating === 5) {
       fiveStarReviews++;
     }
-    if (context.reviews[i].recommend === true) {
+    if (reviews[i].recommend === true) {
       recommended++;
     }
   }
@@ -86,7 +86,7 @@ const RatingBreakdown = () => {
     ratingNumber = 0;
   }
 
-  if (context.reviews.length === 0) {
+  if (reviews.length === 0) {
     return (
       <div>No reviews found for these filters
         <button className="linkButtons" onClick={clearFilters}> Clear Filters
@@ -106,8 +106,8 @@ const RatingBreakdown = () => {
         className="linkButtons"
         id="fiveStar"
         onClick={() => {
-          context.setFiltered({
-            'one': context.filtered.one, 'two': context.filtered.two, 'three': context.filtered.three, 'four': context.filtered.four, 'five': !context.filtered.five
+          setFiltered({
+            'one': filtered.one, 'two': filtered.two, 'three': filtered.three, 'four': filtered.four, 'five': !filtered.five
           });
         }}
       >5 stars
@@ -119,8 +119,8 @@ const RatingBreakdown = () => {
         className="linkButtons"
         id="fourStar"
         onClick={() => {
-          context.setFiltered({
-            'one': context.filtered.one, 'two': context.filtered.two, 'three': context.filtered.three, 'four': !context.filtered.four, 'five': context.filtered.five
+          setFiltered({
+            'one': filtered.one, 'two': filtered.two, 'three': filtered.three, 'four': !filtered.four, 'five': filtered.five
           });
         }}
       >4 stars
@@ -132,8 +132,8 @@ const RatingBreakdown = () => {
         className="linkButtons"
         id="threeStar"
         onClick={() => {
-          context.setFiltered({
-            'one': context.filtered.one, 'two': context.filtered.two, 'three': !context.filtered.three, 'four': context.filtered.four, 'five': context.filtered.five
+          setFiltered({
+            'one': filtered.one, 'two': filtered.two, 'three': !filtered.three, 'four': filtered.four, 'five': filtered.five
           });
         }}
       >3 stars
@@ -145,8 +145,8 @@ const RatingBreakdown = () => {
         className="linkButtons"
         id="twoStar"
         onClick={() => {
-          context.setFiltered({
-            'one': context.filtered.one, 'two': !context.filtered.two, 'three': context.filtered.three, 'four': context.filtered.four, 'five': context.filtered.five
+          setFiltered({
+            'one': filtered.one, 'two': !filtered.two, 'three': filtered.three, 'four': filtered.four, 'five': filtered.five
           });
         }}
       >2 stars
@@ -158,8 +158,8 @@ const RatingBreakdown = () => {
         className="linkButtons"
         id="oneStar"
         onClick={() => {
-          context.setFiltered({
-            'one': !context.filtered.one, 'two': context.filtered.two, 'three': context.filtered.three, 'four': context.filtered.four, 'five': context.filtered.five
+          setFiltered({
+            'one': !filtered.one, 'two': filtered.two, 'three': filtered.three, 'four': filtered.four, 'five': filtered.five
           });
         }}
       >1 star

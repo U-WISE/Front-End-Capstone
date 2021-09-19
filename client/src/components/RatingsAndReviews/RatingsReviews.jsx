@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductCharacteristics from './ProductCharacteristics.jsx';
-import { reviewsContext } from '../../contexts/index.js';
+import { reviewsContext, appContext } from '../../contexts/index.js';
 
 const RatingsReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [allReviews, setAllReviews] = useState([]);
+  const [reviewsMeta, setReviewsMeta] = useState([]);
   const [filtered, setFiltered] = useState({
     'one': false, 'two': false, 'three': false, 'four': false, 'five': false
   });
+  const { product } = useContext(appContext);
 
   // useEffect(() => {
   //   setReviews(testData);
@@ -40,11 +42,16 @@ const RatingsReviews = () => {
   }, [filtered]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/reviews?product_id=44388')
+    axios.get(`http://localhost:3000/reviews?product_id=${product.id}`)
       .then((response) => {
-        console.log(response.data.results);
         setReviews(response.data.results);
         setAllReviews(response.data.results);
+      })
+      .catch((error) => console.log(error));
+
+    axios.get(`http://localhost:3000/reviews/meta?product_id=${product.id}`)
+      .then((response) => {
+        setReviewsMeta(response.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -54,7 +61,13 @@ const RatingsReviews = () => {
   }
 
   return (
-    <reviewsContext.Provider value={{ reviews, filtered, setFiltered }}>
+    <reviewsContext.Provider value={{
+      reviews,
+      filtered,
+      setFiltered,
+      reviewsMeta
+    }}
+    >
       <div id="RRcontainer">
         <ReviewList />
         <RatingBreakdown />

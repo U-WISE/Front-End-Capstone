@@ -30,6 +30,15 @@ Some features we're implemented:
       - Ability to mark a review as helpful.
       
 
+<h3 align="center">Steps to run this repo:</h3>
+
+  - Fork the Front-End-Capstone repo
+  - ```git clone https://github.com/-your-github-username-/Front-End-Capstone.git```
+  - ```npm install``` in your terminal to install all dependencies.
+  - create config folder, with a config.js file with the contents: 
+  - ```const TOKEN = 'your-github-api-key'; module.exports = { TOKEN };```
+  - run ```npm run server``` and ```npm run build``` on seperate terminal instances.
+  - open 'localhost:3000' in your browser and you're all set! 
 
 
 <h2 align="center">Languages and Tools:</h2>
